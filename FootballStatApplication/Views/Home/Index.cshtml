@@ -1,0 +1,191 @@
+﻿@model IEnumerable<FootballStatApplication.Models.TeamData>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Football Statistic</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<h1 class="text-center">Football Statistics</h1>
+
+<body>
+    <div class="container">
+        
+        <main role="main" class="pb-3">
+            
+            <div class="container">
+
+                <div class="col-md" style="border-left: 1px dotted #D3D3D3;">
+                    <h3 class="text-center">Premier League 2019/20</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <h4>Team</h4>
+                                </th>
+                                <th>
+                                    <h4>Achievement</h4>
+                                </th>
+                                <th>
+                                    <h4>Scored goals</h4>
+                                </th>
+                                <th>
+                                    <h4>Missed goals</h4>
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Where(x => x.LeagueName == "Premier League 2019/20" & x.MissedGoals != 0))
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TeamName)
+                                </td>
+                                <td class="text-success">
+                                    @Html.DisplayFor(modelItem => item.Achievement)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ScoredGoals)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MissedGoals)
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md" style="border-left: 1px dotted #D3D3D3;">
+                    <h3 class="text-center">Championship 2019/20</h3>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <h4>Team</h4>
+                                </th>
+                                <th>
+                                    <h4>Achievement</h4>
+                                </th>
+                                <th>
+                                    <h4>Scored goals</h4>
+                                </th>
+                                <th>
+                                    <h4>Missed goals</h4>
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Where(x => x.LeagueName == "Championship 2019/20" & x.MissedGoals != 0))
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TeamName)
+                                </td>
+                                <td class="text-success">
+                                    @Html.DisplayFor(modelItem => item.Achievement)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ScoredGoals)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MissedGoals)
+                                </td>
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md" style="border-left: 1px dotted #D3D3D3;">
+                    <h3 class="text-center">League One 2019/20</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <h4>Team</h4>
+                                </th>
+                                <th>
+                                    <h4>Achievement</h4>
+                                </th>
+                                <th>
+                                    <h4>Scored goals</h4>
+                                </th>
+                                <th>
+                                    <h4>Missed goals</h4>
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Where(x => x.LeagueName == "League One 2019/20" & x.MissedGoals != 0))
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TeamName)
+                                </td>
+                                <td class="text-success">
+                                    @Html.DisplayFor(modelItem => item.Achievement)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ScoredGoals)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MissedGoals)
+                                </td>
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md" style="border-left: 1px dotted #D3D3D3;">
+                    <h3 class="text-center">Beast scoring date in each league</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <h4>League</h4>
+                                </th>
+                                <th>
+                                    <h4>Scored goals</h4>
+                                </th>
+                                <th>
+                                    <h4>Date</h4>
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Where(x => x.MissedGoals ==0))
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LeagueName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ScoredGoals)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.BestDay)
+                                </td>
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+
